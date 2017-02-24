@@ -13,7 +13,7 @@ A fully baked _how to_ blog post is coming with the official launch of v1.0.
 
 This is not going to cover setting up a Facebook page and application with the necessary identifiers and secrets. I would recommend reading through the [Messenger Platform Quick Start Guide] provided by Facebook.
 
-This also assumes that [nodemon] is installed globally. Feel free to edit the _dev_ scipts in `packages.json` to your liking if nodemon is not a part of your preferred development setup.
+This also assumes that [nodemon] is installed globally. Feel free to edit the _dev_ scripts in `packages.json` to your liking if nodemon is not a part of your preferred development setup.
 
 Clone the `launch-vehicle-fbm` repo:
 ```shell
@@ -26,7 +26,7 @@ cd launch-vehicle-fbm
 npm link
 ```
 
-Clone this repo, `enterprise-fbm` repo into a separate directory:
+Clone this repo, `enterprise-fbm`, into a separate directory:
 ```shell
 git clone git@github.com:stripethree/enterprise-fbm.git
 ```
