@@ -5,9 +5,10 @@ An example Messenger bot using Condé Nast's [`launch-vehicle-fbm`]. The `enterp
 
 [`launch-vehicle-fbm`]: https://github.com/CondeNast/launch-vehicle-fbm
 
-The SDK is currently in pre-release, meaning it is not yet published via `npm`. The repo is public, however, which means bot developers can start tinkering now!
+A fully baked _how to_ blog post can be found on the _[Condé Nast Engineering Blog]_ and _[Chatbots Magazine]_.
 
-A fully baked _how to_ blog post is coming with the official launch of v1.0.
+[Condé Nast Engineering Blog]: https://engineering.condenast.io/story/bot-building-with-launch-vehicle-fbm
+[Chatbots Magazine]: https://chatbotsmagazine.com/bot-building-with-launch-vehicle-fbm-c17170c65e75#.j2pxmx7vu
 
 ### Using this example
 
@@ -15,27 +16,11 @@ This is not going to cover setting up a Facebook page and application with the n
 
 This also assumes that [nodemon] is installed globally. Feel free to edit the _dev_ scripts in `packages.json` to your liking if nodemon is not a part of your preferred development setup.
 
-Clone the `launch-vehicle-fbm` repo:
-```shell
-git clone git@github.com:CondeNast/launch-vehicle-fbm.git
-```
-
-Change into the directory containing the cloned SDK and create a globally-installed symbolic link:
-```shell
-cd launch-vehicle-fbm
-npm link
-```
-
-Clone this repo, `enterprise-fbm`, into a separate directory:
+Clone this repo, `enterprise-fbm`, and install the dependencies:
 ```shell
 git clone git@github.com:stripethree/enterprise-fbm.git
-```
-
-Change into the directory containing the cloned
-example and link the `launch-vehicle-fbm` module:
-```shell
 cd enterprise-fbm
-npm link launch-vehicle-fbm
+npm i
 ```
 
 Copy `example.env` to `.env` and replace it with the identifiers and secrets for your Facebook page and application. Then export these values into the environment:
@@ -47,6 +32,7 @@ Start up [_localtunnel_], I'd recommend using the _subdomain_ argument:
 ```shell
 lt --port 3000 --subdomain <pick a subdomain>
 ```
+This URL is what will also populate the _Callback URL_ field when configuring the _Page Subscription_ for the application's webhook.
 
 Start up the bot!
 ```shell

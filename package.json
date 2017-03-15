@@ -1,12 +1,35 @@
 {
-  "name": "messenger-bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "enterprise-fbm",
+  "version": "0.0.1-0",
+  "description": "A simple example bot using launch-vehicle-fbm",
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=* nodemon -x npm start",
     "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "engines": {
+    "node": ">6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stripethree/enterprise-fbm"
+  },
+  "keywords": [
+    "facebook",
+    "messenger",
+    "bot"
+  ],
+  "author": {
+    "name" : "Jeff Israel",
+    "email" : "jeff.israel@gmail.com",
+    "url" : "http://www.jeffisrael.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stripethree/enterprise-fbm/issues"
+  },
+  "homepage": "https://github.com/stripethree/enterprise-fbm#readme",
+  "dependencies": {
+    "launch-vehicle-fbm": "^1.1.1"
+  }
 }
