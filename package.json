@@ -30,7 +30,9 @@
   },
   "homepage": "https://github.com/stripethree/enterprise-fbm#readme",
   "dependencies": {
-    "github": "^9.2.0",
-    "launch-vehicle-fbm": "^1.1.1"
+    "launch-vehicle-fbm": "^1.1.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "url-join": "^1.1.0"
   }
 }
