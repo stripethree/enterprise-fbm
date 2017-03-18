@@ -4,7 +4,7 @@ const messenger = new Messenger();
 messenger.start();
 
 messenger.on('text.greeting', ({senderId, session, firstName, surName, fullName}) => {
-  return messenger.send(senderId, new responses.Text('🤖  beep bop boop. Well hello there, I am a bot.'));
+  return messenger.send(senderId, new responses.Text('🤖 beep bop boop. Well hello there, I am a bot.'));
 });
 
 messenger.on('text.help', ({senderId}) => {
