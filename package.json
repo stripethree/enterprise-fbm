@@ -20,9 +20,9 @@
     "bot"
   ],
   "author": {
-    "name" : "Jeff Israel",
-    "email" : "jeff.israel@gmail.com",
-    "url" : "http://www.jeffisrael.com"
+    "name": "Jeff Israel",
+    "email": "jeff.israel@gmail.com",
+    "url": "http://www.jeffisrael.com"
   },
   "license": "ISC",
   "bugs": {
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/stripethree/enterprise-fbm#readme",
   "dependencies": {
+    "github": "^9.2.0",
     "launch-vehicle-fbm": "^1.1.1"
   }
 }
