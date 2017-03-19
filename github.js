@@ -28,11 +28,17 @@ class GitHub {
   }
 
   listIssues(owner, repo) {
+    const qs = {
+      labels: 'question',
+      sort: 'created',
+      direction: 'asc'
+    };
     const options = {
-      headers: this.headers,
       method: 'GET',
-      json: true,
-      uri: urlJoin(this.apiUrl, 'repos', owner, repo, 'issues')
+      uri: urlJoin(this.apiUrl, 'repos', owner, repo, 'issues'),
+      headers: this.headers,
+      qs,
+      json: true
     }
     return reqPromise.get(options);
   }
