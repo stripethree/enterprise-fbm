@@ -10,13 +10,12 @@ class GitHub {
     };
   }
 
-  createIssue(owner, repo, title, body) {
+  createIssue(owner, repo, title, body, labels = []) {
     const reqBody = {
       title,
       body,
-      assignees: [owner]
-      // milstone,
-      // labels: []
+      assignees: [owner],
+      labels
     }
     const options = {
       body: reqBody,
