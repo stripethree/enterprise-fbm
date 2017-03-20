@@ -11,6 +11,8 @@ const messenger = new Messenger();
 const QUESTION_REGEX = /\?$/;
 const REPO_NAME = config.get('github.repoName');
 const REPO_OWNER = config.get('github.repoOwner');
+// TODO: custom label for brown-bag?
+// const REPO_LABELS = ...
 
 messenger.start();
 
@@ -26,16 +28,25 @@ messenger.on('text', ({senderId, session, source, text}) => {
 
   if (QUESTION_REGEX.test(text)) {
     const issueTitle = `Question submitted by ${session.profile.first_name} ${session.profile.last_name}`;
-    const issueBody = `${session.profile.first_name} ${session.profile.last_name} (Messenger ID: ${senderId}) asked: ${text}`;
+    const issueBody = `${session.profile.first_name} ${session.profile.last_name} (Messenger ID: ${senderId}) asked: "${text}"`;
     const labels = ['question'];
 
     return ghClient.createIssue(REPO_OWNER, REPO_NAME, issueTitle, issueBody, labels)
       .then((res) => {
-        return messenger.send(senderId, new Text(`Thanks for the question, ${session.profile.first_name}!`));
+        const element = {
+          title: `Thanks for the question, ${session.profile.first_name}!`,
+          subtitle: 'We filed an issue with this question.',
+          buttons:[{
+              type: 'web_url',
+              url: res.html_url,
+              title: 'View it on Github'
+          }]
+        };
+        return messenger.send(senderId, new Generic([element]));
       })
       .catch((err) => {
         logError(`Failed to create issue in repo "${REPO_NAME}"`);
-        return messenger.send(senderId, new Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question`));
+        return messenger.send(senderId, new Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question.`));
       });
   }
 
@@ -53,6 +64,7 @@ messenger.on('text', ({senderId, session, source, text}) => {
             }]
           };
         });
+        const card = Object.assign({}, new Generic(elements))
         return messenger.send(senderId, new Generic(elements));
       })
       .catch((err) => {
