@@ -10,6 +10,7 @@ class GitHub {
     };
   }
 
+  // TODO: support for additional assignees?
   createIssue(owner, repo, title, body, labels = []) {
     const reqBody = {
       title,
