@@ -44,3 +44,21 @@ Off you go! The example supports responding to greetings (try saying _hello_) an
 [_localtunnel_]: https://github.com/localtunnel/localtunnel
 [Messenger Platform Quick Start Guide]: https://developers.facebook.com/docs/messenger-platform/guides/quick-start
 [nodemon]: https://github.com/remy/nodemon
+
+### Deploying to Heroku
+
+The default configuration set for `launch-vehicle-fbm` pulls the application port from `process.env.NODE_PORT`. Heroku uses `process.env.PORT` and thus, a small change needs to be made to `./config/custom-environment-variables`.
+
+```
+-    "port": "NODE_PORT"
++    "port": "PORT"
+```
+
+The `default.json` file could also be removed from `./config` if desired.
+
+Here are the necessary commands to get the application created, configured, and started in Heroku. This assumes that the necessary configuration items have been exported to the environment.
+```
+heroku create <optional project name>
+heroku config:set FACEBOOK_APP_ID=${FACEBOOK_APP_ID} FACEBOOK_PAGE_ID=${FACEBOOK_PAGE_ID} MESSENGER_APP_SECRET=${MESSENGER_APP_SECRET} MESSENGER_PAGE_ACCESS_TOKEN=${MESSENGER_PAGE_ACCESS_TOKEN} MESSENGER_VALIDATION_TOKEN=${MESSENGER_VALIDATION_TOKEN}
+git push heroku master
+```
