@@ -21,7 +21,7 @@ messenger.on('text.greeting', ({reply}) => {
 });
 
 messenger.on('text.help', ({reply}) => {
-  reply(senderId, new Text('helpReply'));
+  reply(new Text('helpReply'));
 });
 
 messenger.on('text', ({senderId, session, source, text}) => {
