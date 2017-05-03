@@ -1,7 +1,7 @@
 const config = require('config');
 const debug = require('debug')('enterprise-fbm');
 const logError = require('debug')('enterprise-fbm:error');
-const { Messenger, Generic, Image, Text } = require('launch-vehicle-fbm');
+const { Messenger, responses } = require('launch-vehicle-fbm');
 
 const { GitHub } = require('./github');
 
@@ -16,12 +16,12 @@ const REPO_OWNER = config.get('github.repoOwner');
 
 messenger.start();
 
-messenger.on('text.greeting', ({senderId, session, firstName, surName, fullName}) => {
-  return messenger.send(senderId, new Text('greetingReply'));
+messenger.on('text.greeting', ({reply}) => {
+  reply(new responses.Text('greetingReply'));
 });
 
-messenger.on('text.help', ({senderId}) => {
-  return messenger.send(senderId, new Text('helpReply'))
+messenger.on('text.help', ({reply}) => {
+  reply(senderId, new Text('helpReply'));
 });
 
 messenger.on('text', ({senderId, session, source, text}) => {
@@ -42,11 +42,11 @@ messenger.on('text', ({senderId, session, source, text}) => {
               title: 'View it on Github'
           }]
         };
-        return messenger.send(senderId, new Generic([element]));
+        return reply(new Generic([element]));
       })
       .catch((err) => {
         logError(`Failed to create issue in repo "${REPO_NAME}"`);
-        return messenger.send(senderId, new Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question.`));
+        return reply(new Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question.`));
       });
   }
 
@@ -65,11 +65,11 @@ messenger.on('text', ({senderId, session, source, text}) => {
           };
         });
         const card = Object.assign({}, new Generic(elements))
-        return messenger.send(senderId, new Generic(elements));
+        return reply(new Generic(elements));
       })
       .catch((err) => {
         logError(`Failed to list issues for repo "${REPO_NAME}"`);
-        return messenger.send(senderId, new Text(`Sorry, ${session.profile.first_name}, there was a problem listing the questions`));
+        return reply(new Text(`Sorry, ${session.profile.first_name}, there was a problem listing the questions`));
       });
   }
 
@@ -85,9 +85,9 @@ messenger.on('text', ({senderId, session, source, text}) => {
   }
   */
 
-  return messenger.send(senderId, new Text(`Echo: "${text}"`));
+  reply(new Text(`Echo: "${text}"`));
 });
 
 messenger.on('message.image', ({senderId, url}) => {
-  return messenger.send(senderId, new Image(url));
+  reply(senderId, new Image(url));
 });

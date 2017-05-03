@@ -1,4 +1,9 @@
 {
+  "github": {
+    "accessToken": "GITHUB_TOKEN",
+    "repoName": "GITHUB_REPO",
+    "repoOwner": "GITHUB_REPO_OWNER"
+  },
   "launch-vehicle-fbm": {
     "facebook": {
       "appId": "FACEBOOK_APP_ID",
@@ -8,15 +13,11 @@
       "appSecret": "MESSENGER_APP_SECRET",
       "pageAccessToken": "MESSENGER_PAGE_ACCESS_TOKEN",
       "validationToken": "MESSENGER_VALIDATION_TOKEN"
-    },
-    "port": "PORT",
-    "dashBotKey": "DASHBOT_KEY",
-    "slackChannel": "SLACK_CHANNEL",
-    "slackWebhookUrl": "SLACK_WEBHOOK_URL"
+    }
   },
-  "github": {
-    "accessToken": "GITHUB_TOKEN",
-    "repoName": "GITHUB_REPO",
-    "repoOwner": "GITHUB_REPO_OWNER"
-  }
+  "dashBotKey": "DASHBOT_KEY",
+  "port": "NODE_PORT",
+  "serverUrl": "SERVER_URL",
+  "slackChannel": "SLACK_CHANNEL",
+  "slackWebhookUrl": "SLACK_WEBHOOK_URL"
 }
