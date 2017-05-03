@@ -21,7 +21,7 @@ messenger.on('text.greeting', ({reply}) => {
 });
 
 messenger.on('text.help', ({reply}) => {
-  reply(new Text('helpReply'));
+  reply(new responses.Text('helpReply'));
 });
 
 messenger.on('text', ({senderId, session, source, text}) => {
@@ -42,11 +42,11 @@ messenger.on('text', ({senderId, session, source, text}) => {
               title: 'View it on Github'
           }]
         };
-        return reply(new Generic([element]));
+        return reply(new responses.Generic([element]));
       })
       .catch((err) => {
         logError(`Failed to create issue in repo "${REPO_NAME}"`);
-        return reply(new Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question.`));
+        return reply(new responses.Text(`Sorry, ${session.profile.first_name}, there was a problem adding your question.`));
       });
   }
 
@@ -64,12 +64,11 @@ messenger.on('text', ({senderId, session, source, text}) => {
             }]
           };
         });
-        const card = Object.assign({}, new Generic(elements))
-        return reply(new Generic(elements));
+        return reply(new responses.Generic(elements));
       })
       .catch((err) => {
         logError(`Failed to list issues for repo "${REPO_NAME}"`);
-        return reply(new Text(`Sorry, ${session.profile.first_name}, there was a problem listing the questions`));
+        return reply(new responses.Text(`Sorry, ${session.profile.first_name}, there was a problem listing the questions`));
       });
   }
 
@@ -85,9 +84,9 @@ messenger.on('text', ({senderId, session, source, text}) => {
   }
   */
 
-  reply(new Text(`Echo: "${text}"`));
+  reply(new responses.Text(`Echo: "${text}"`));
 });
 
 messenger.on('message.image', ({senderId, url}) => {
-  reply(senderId, new Image(url));
+  reply(senderId, new responses.Image(url));
 });
