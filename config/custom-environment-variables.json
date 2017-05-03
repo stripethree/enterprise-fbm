@@ -5,6 +5,7 @@
     "repoOwner": "GITHUB_REPO_OWNER"
   },
   "launch-vehicle-fbm": {
+    "dashBotKey": "DASHBOT_KEY",
     "facebook": {
       "appId": "FACEBOOK_APP_ID",
       "pageId": "FACEBOOK_PAGE_ID"
@@ -13,11 +14,10 @@
       "appSecret": "MESSENGER_APP_SECRET",
       "pageAccessToken": "MESSENGER_PAGE_ACCESS_TOKEN",
       "validationToken": "MESSENGER_VALIDATION_TOKEN"
-    }
-  },
-  "dashBotKey": "DASHBOT_KEY",
-  "port": "NODE_PORT",
-  "serverUrl": "SERVER_URL",
-  "slackChannel": "SLACK_CHANNEL",
-  "slackWebhookUrl": "SLACK_WEBHOOK_URL"
+    },
+    "port": "NODE_PORT",
+    "serverUrl": "SERVER_URL",
+    "slackChannel": "SLACK_CHANNEL",
+    "slackWebhookUrl": "SLACK_WEBHOOK_URL"
+  }
 }
