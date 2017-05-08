@@ -10,7 +10,15 @@ const messenger = new Messenger(
 messenger.start();
 
 messenger.on('text.greeting', ({reply, firstName}) => {
-  reply(new responses.Text(`🤖  Beep bop boop. Well hello there, ${firstName}, I am a bot.`));
+  const text = new responses.Text(`🤖  Beep bop boop. Well hello there, ${firstName}, I am a bot.`);
+
+  // text translation, inspired by get-text: https://en.wikipedia.org/wiki/Gettext
+  // const text = new responses.Text('greetingReply1');
+
+  // support for printf-like sytanx
+  // const text = new responses.Text('greetingReply2', firstName);
+
+  reply(text);
 });
 
 messenger.on('text.help', ({reply}) => {
