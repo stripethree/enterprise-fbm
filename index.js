@@ -49,7 +49,17 @@ messenger.on('message.image', ({reply, url}) => {
 });
 
 /*
+messenger.on('message.thumbsup', ({reply}) => {
+  reply(new responses.Text('👍'));
+});
+
+messenger.on('message.sticker', ({reply}) => {
+  reply(new responses.Text('catEmoji'));
+});
+*/
+
 // access underlying expressjs instance
+/*
 messenger.app.get(`/superbot`, (req, res) => {
   res.send('🤖');
 });
