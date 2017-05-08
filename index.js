@@ -47,3 +47,10 @@ messenger.on('text', ({reply, senderId, session, text, source}) => {
 messenger.on('message.image', ({reply, url}) => {
   reply(new responses.Image(url));
 });
+
+/*
+// access underlying expressjs instance
+messenger.app.get(`/superbot`, (req, res) => {
+  res.send('🤖');
+});
+*/
