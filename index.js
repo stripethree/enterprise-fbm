@@ -1,5 +1,11 @@
 const { Messenger, responses } = require('launch-vehicle-fbm');
-const messenger = new Messenger();
+const messenger = new Messenger(
+  // toggle greetings off:
+  // { emitGreetings: false }
+
+  // override greeting regex:
+  // { emitGreetings: /^(good-?)?bye/i }
+);
 
 messenger.start();
 
