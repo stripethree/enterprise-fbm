@@ -24,7 +24,7 @@ messenger.on('text.help', ({reply}) => {
   reply(new responses.Text('helpReply'));
 });
 
-messenger.on('text', ({senderId, session, source, text}) => {
+messenger.on('text', ({reply, senderId, session, source, text}) => {
 
   if (QUESTION_REGEX.test(text)) {
     const issueTitle = `Question submitted by ${session.profile.first_name} ${session.profile.last_name}`;
@@ -87,6 +87,6 @@ messenger.on('text', ({senderId, session, source, text}) => {
   reply(new responses.Text(`Echo: "${text}"`));
 });
 
-messenger.on('message.image', ({senderId, url}) => {
+messenger.on('message.image', ({reply, senderId, url}) => {
   reply(senderId, new responses.Image(url));
 });
