@@ -15,7 +15,7 @@ messenger.on('text.greeting', ({reply, firstName}) => {
   // text translation, inspired by get-text: https://en.wikipedia.org/wiki/Gettext
   // const text = new responses.Text('greetingReply1');
 
-  // support for printf-like sytanx
+  // support for printf-like syntax
   // const text = new responses.Text('greetingReply2', firstName);
 
   reply(text);
@@ -27,8 +27,7 @@ messenger.on('text.help', ({reply}) => {
 
 messenger.on('text', ({reply, senderId, session, text, source}) => {
 
-  // using the sessiono object - simple message history
-  /*
+  // using the session object - simple message history
   const matchesLast = text.match(/^last (\d)$/i);
   if (matchesLast) {
     if (session.messages && session.messages.length) {
@@ -40,7 +39,6 @@ messenger.on('text', ({reply, senderId, session, text, source}) => {
     return;
   }
   session.messages ? session.messages.push(text) : session.messages = [text];
-  */
   reply(new responses.Text(`Echo: "${text}"`));
 });
 
@@ -48,7 +46,6 @@ messenger.on('message.image', ({reply, url}) => {
   reply(new responses.Image(url));
 });
 
-/*
 messenger.on('message.thumbsup', ({reply}) => {
   reply(new responses.Text('👍'));
 });
@@ -56,11 +53,8 @@ messenger.on('message.thumbsup', ({reply}) => {
 messenger.on('message.sticker', ({reply}) => {
   reply(new responses.Text('catEmoji'));
 });
-*/
 
 // access underlying expressjs instance
-/*
 messenger.app.get(`/superbot`, (req, res) => {
   res.send('🤖');
 });
-*/
